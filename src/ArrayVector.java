@@ -164,7 +164,6 @@ public class ArrayVector {
             System.out.print(element + " ");
         }
     }
-<<<<<<< HEAD
 
     /**
      *
