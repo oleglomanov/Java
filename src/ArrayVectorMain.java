@@ -35,24 +35,6 @@ public class ArrayVectorMain {
 
 
 
-/**   можно удалить будет потом если хоть  заработает другой вариант
-
- vector_vector.printElement1WithIndex();
- vector_vector.printElement2WithIndex();
- vector_vector.changeElement1WithIndex();
- vector_vector.changeElement2WithIndex();
- vector_vector.printlightelement();
- vector_vector.printlightelement2();
-
- vector_vector.maxAndMin();
- vector_vector.find ();
- vector_vector.getAverage();
- vector_vector.getNorm();
- vector_vector.sort();
- vector_vector.mult();
- vector_vector.sumV1OnV2();
- */
-
 
 
 
