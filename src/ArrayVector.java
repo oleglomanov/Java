@@ -2,7 +2,10 @@ package src;
 
 public class ArrayVector {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7a3f80739a1255ed2b3a0398534dbfa0090b2b3d
     int vectorSize;
 
     int[] vector;
@@ -163,6 +166,7 @@ public class ArrayVector {
             System.out.print(element + " ");
         }
     }
+<<<<<<< HEAD
 
     /**
      *
@@ -198,6 +202,8 @@ public class ArrayVector {
             System.out.print(i1 + " ");
         }
     }
+=======
+>>>>>>> 7a3f80739a1255ed2b3a0398534dbfa0090b2b3d
 }
 
 
