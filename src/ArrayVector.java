@@ -24,6 +24,7 @@ public class ArrayVector {
 
     }
 
+    // 
 
     /**
      * @param i -  индекс элемента
