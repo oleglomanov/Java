@@ -51,9 +51,6 @@ public class ArrayVectorMain {
         System.out.println("\n"+ "Результат скалярного произведения двух векторов:");ArrayVector.scalarvector(vector1,vector2);
 
     }
-<<<<<<< HEAD
-}
-=======
 }
 
 
@@ -62,4 +59,4 @@ public class ArrayVectorMain {
 
 
 
->>>>>>> 7a3f80739a1255ed2b3a0398534dbfa0090b2b3d
+
