@@ -18,9 +18,8 @@ public class ArrayVectorMain {
             double r = Math.random()*100;
             int b = (int)r;
             vector1.setElement(i, b);
-            {
                 System.out.println( " Все элементы по вектору 1 " + vector1.getElement(i));
-            }
+            
         }
 
         /**
@@ -34,10 +33,8 @@ public class ArrayVectorMain {
             double r = Math.random()*100;
             int b = (int)r;
             vector2.setElement(i, b);
-            {
-
                 System.out.println(" Все элементы вектора 2 : " + vector2.getElement(i));
-            }
+          
         }
 
         System.out.println(" Элемент по заданному индексу для вектора 1 : " + vector1.getElement(3));
