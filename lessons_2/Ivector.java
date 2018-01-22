@@ -1,9 +1,12 @@
 package lessons_2;
 
+import java.util.Iterator;
+
 public interface Ivector {
 
-    int getElement (int i ) throws VectorIndexOutOfBoundsException;
+    double getElement (int i );
     int getVectorSize ( );
     double getNorm () throws VectorIndexOutOfBoundsException;
+    Iterator iterator();
 
 }

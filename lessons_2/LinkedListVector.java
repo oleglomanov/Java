@@ -1,6 +1,8 @@
 package lessons_2;
 
 
+import java.util.Iterator;
+import java.util.*;
 public class LinkedListVector  implements  Ivector {
 
 
@@ -8,25 +10,25 @@ public class LinkedListVector  implements  Ivector {
     private int[] vector;
 
 
-        LinkedListVector( int _vectorSize){
-            {
-                this.vectorSize = _vectorSize;
-                try {
-                    vector = new int[vectorSize];
+    LinkedListVector(int _vectorSize) {
+        {
+            this.vectorSize = _vectorSize;
+            try {
+                vector = new int[vectorSize];
 
-                    for (int i = 0; i < vectorSize; i++) {
-                        double r = Math.random() * 100;
-                        int b = (int) r;
-                        this.addVector(b);
-                    }
-                } catch (NegativeArraySizeException e) {
-
-                    System.out.println("Отрицательное значение элементов");
-
+                for (int i = 0; i < vectorSize; i++) {
+                    double r = Math.random() * 100;
+                    int b = (int) r;
+                    this.addVector(b);
                 }
+            } catch (NegativeArraySizeException e) {
+
+                System.out.println("Отрицательное значение элементов");
+
             }
- //  catch (ArrayIndexOutOfBoundsException e) {
- //           System.out.println("Ошибка: " + e.toString());
+        }
+        //  catch (ArrayIndexOutOfBoundsException e) {
+        //           System.out.println("Ошибка: " + e.toString());
     }
 
     //Вспомогательный внутренний класс, реализует элемент связного списка.
@@ -78,16 +80,14 @@ public class LinkedListVector  implements  Ivector {
 
 
     public void deleteElement(int element) throws VectorIndexOutOfBoundsException {
-try {
-    Node delete = this.gotoNumber(element);
-    delete.next.prev = delete.prev;
-    delete.prev.next = delete.next;
+        try {
+            Node delete = this.gotoNumber(element);
+            delete.next.prev = delete.prev;
+            delete.prev.next = delete.next;
 
-}
-
-catch (VectorIndexOutOfBoundsException e) {
-    System.out.println("Элеменет отсутствует"); //e.printStackTrace();
-}
+        } catch (VectorIndexOutOfBoundsException e) {
+            System.out.println("Элеменет отсутствует"); //e.printStackTrace();
+        }
         size--;
         currentIndex--;
         //currentIndex = -1;
@@ -99,36 +99,36 @@ catch (VectorIndexOutOfBoundsException e) {
             for (int i = 0; i < size; i++) {
                 System.out.print(this.gotoNumber(i).value + " ");
             }
-        }
-        catch (VectorIndexOutOfBoundsException e) {
+        } catch (VectorIndexOutOfBoundsException e) {
             System.out.println("Элемент отсутствует"); //e.printStackTrace();
         }
     }
 
-    public int getElement(int i) throws VectorIndexOutOfBoundsException {
+    public double getElement(int i) {
+
+
         try {
-            System.out.println(this.gotoNumber(i).value + " ");
+            return this.gotoNumber(i).value;
+        } catch (VectorIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
-        catch (VectorIndexOutOfBoundsException e) {
-            System.out.println("Элемент отсутствует");
-        }
-        return i;
+        return 12;
     }
-   public double getNorm() throws VectorIndexOutOfBoundsException {
-       int norm = 0;
-       for (int i = 0; i < size; i++) {
-           norm += this.gotoNumber(i).value * this.gotoNumber(i).value;
-       }
-       return Math.sqrt(norm);
-   }
 
 
+    public double getNorm() throws VectorIndexOutOfBoundsException {
+        int norm = 0;
+        for (int i = 0; i < size; i++) {
+            norm += this.gotoNumber(i).value * this.gotoNumber(i).value;
+        }
+        return Math.sqrt(norm);
+    }
 
-    private Node gotoNumber(int index) throws VectorIndexOutOfBoundsException {
+
+    Node gotoNumber(int index) throws VectorIndexOutOfBoundsException {
         if ((index >= 0) && (index < size)) {     // проверка индекса
 
             if (index < currentIndex) {  //  меньше последнего значения
-
 
 
                 if (index < currentIndex - index) {  //
@@ -164,10 +164,53 @@ catch (VectorIndexOutOfBoundsException e) {
 
     public int getVectorSize() {
 
-        System.out.println(this.size);
-
-        return 0;
+        //System.out.println(this.size);
+        return size;
     }
+
+    Node getHead() {
+        return head;
+    }
+
+    public java.util.Iterator iterator() {
+        return new LinkedListVectorIterator(this);
+    }
+
+    public static class LinkedListVectorIterator implements Iterator {
+        private LinkedListVector.Node current;
+        private LinkedListVector.Node head;
+
+
+        public LinkedListVectorIterator(LinkedListVector v) {
+            head = v.getHead();
+            current = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current.next != head;
+        }
+
+        @Override
+        public Object next() {
+            if (hasNext()) {
+                current = current.next;
+            }
+            return current.value;
+        }
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+
+        }
+    }
+
+    public static class LinkedListVectorFactory implements VectorFactory {
+
+        public LinkedListVector createInstance(int size) {
+            return new LinkedListVector(size);
+        }
+    }
+
+
 }
-
-
