@@ -19,27 +19,31 @@ public class Vectors {
         System.out.println(arrayVectorFromClassArrayVector  +"  My new ArrayVector ");             // Print all elemets from arrayVector
 
         ArrayVector.ArrayVectorIterator arrayVectorIterator = new ArrayVector.ArrayVectorIterator(arrayVectorFromClassArrayVector);  // Create interator ArrayVector
-        System.out.println(arrayVectorIterator.next()+ "Check method next") ;    //Check method next from  arrayVector
-        System.out.println(arrayVectorIterator.next()+ "Check method next") ;    //Check method next from  arrayVector
-        System.out.println(arrayVectorIterator.next()+ "Check method next") ;    //Check method next from  arrayVector
-        System.out.println(arrayVectorIterator.hasNext()+ "Check method hasNext") ;    //Check method hasnext from  arrayVector
-        System.out.println(arrayVectorIterator.next()+ "Check method next") ;    //Check method next from  arrayVector
-        System.out.println(arrayVectorIterator.hasNext()+ "Check method hasNext") ;    //Check method hasnext from  arrayVector
-        System.out.println(arrayVectorIterator.next()+ "Check method next") ;    //Check method next from  arrayVector
-        System.out.println(arrayVectorIterator.hasNext()+ "Check method hasNext") ;    //Check method hasnext from  arrayVector
- //        arrayVectorIterator.remove();     //Check method  Remove, print exception
+        System.out.println(arrayVectorIterator.next()+ " Check method next") ;    //Check method next from  arrayVector
+        System.out.println(arrayVectorIterator.next()+ " Check method next") ;    //Check method next from  arrayVector
+        System.out.println(arrayVectorIterator.next()+ " Check method next") ;    //Check method next from  arrayVector
+        System.out.println(arrayVectorIterator.hasNext()+ " Check method hasNext") ;    //Check method hasnext from  arrayVector
+        System.out.println(arrayVectorIterator.hasNext()+ " Check method hasNext") ;    //Check method hasnext from  arrayVector
+ //     arrayVectorIterator.remove();     //Check method  Remove, print exception
 
 
 
         LinkedListVector.LinkedListVectorFactory linkedListVectorFactory = new LinkedListVector.LinkedListVectorFactory();   // Create arrayVectorFactory
-        Ivector linkedlist = linkedListVectorFactory.createInstance(6);                                                 // Create arrayVector type Ivecor (Interface)
+        Ivector linkedlist = linkedListVectorFactory.createInstance(3);                                                 // Create arrayVector type Ivecor (Interface)
 
-        LinkedListVector linkedListVectorFromClassLinkedList = linkedListVectorFactory.createInstance(4);               // Create LinkedListVector from class Linked list
-        System.out.println(linkedListVectorFromClassLinkedList + " My new Linkedlist");                                      // Print all elemets from LinkedList
+        LinkedListVector linkedListVectorFromClassLinkedList = linkedListVectorFactory.createInstance(3);               // Create LinkedListVector from class Linked list
+        linkedListVectorFromClassLinkedList.printElements();                                     // Print all elemets from LinkedList
+        System.out.println();
+        LinkedListVector.LinkedListVectorIterator linkedListVectorIterator = new LinkedListVector.LinkedListVectorIterator(linkedListVectorFromClassLinkedList);   // Create interator LinkedlistVector
+        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");
+        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");  //Check method next from  LinkedListVector
+        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");  //Check method next from  LinkedListVector
+        System.out.println(linkedListVectorIterator.hasNext() + " Check method hasnext from  LinkedListVector ");
+        System.out.println(linkedListVectorIterator.hasNext() + " Check method hasnext from  LinkedListVector ");
 
-LinkedListVector.LinkedListVectorIterator linkedListVectorIterator = new LinkedListVector.LinkedListVectorIterator(linkedListVectorFromClassLinkedList);   // Create interator LinkedlistVector
-        System.out.println(linkedListVectorIterator.hasNext() + " Check method hasnext from  LinkedListVector ");             //Check method next from  LinkedListVector
-        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");                 //Check method next from  LinkedListVector
+
+
+
 //      linkedListVectorIterator.remove();   //Check method  Remove, print exception
 
 

@@ -15,7 +15,6 @@ public class LinkedListVector  implements  Ivector {
             this.vectorSize = _vectorSize;
             try {
                 vector = new int[vectorSize];
-
                 for (int i = 0; i < vectorSize; i++) {
                     double r = Math.random() * 100;
                     int b = (int) r;
@@ -188,6 +187,7 @@ public class LinkedListVector  implements  Ivector {
 
         @Override
         public boolean hasNext() {
+         current=current.next;
             return current.next != head;
         }
 

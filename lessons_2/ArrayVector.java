@@ -15,6 +15,8 @@ public class ArrayVector implements Ivector {
      */
 
 
+
+
     ArrayVector(int _vectorSize) {
         this.vectorSize = _vectorSize;
         vector = new double[vectorSize];
@@ -26,7 +28,6 @@ public class ArrayVector implements Ivector {
             //   System.out.println( " Все элементы по вектору 1 " + this.getElement(i));
 
         }
-
     }
 
     /**
@@ -86,7 +87,7 @@ public class ArrayVector implements Ivector {
         return Math.sqrt(norm);
     }
 
-
+/**
     @Override
     public String toString() {
         return "ArrayVector{" +
@@ -94,6 +95,7 @@ public class ArrayVector implements Ivector {
                 ", vector=" + Arrays.toString(vector) +
                 '}';
     }
+ */
 
     public java.util.Iterator iterator() {
         return new ArrayVectorIterator(this);
@@ -111,22 +113,13 @@ public class ArrayVector implements Ivector {
         }
 
         public boolean hasNext() {
-            try {
-                return current < length;
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Такого элемента нет");
-            }
-            return false;
+            current++;
+            return current < length;
         }
 
         public Object next() {
-            try {
                 current++;
                 return aggregate.getElement(current);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Такого элемента нет");
-            }
-            return false;
         }
 
         public void remove() {
@@ -141,6 +134,11 @@ public class ArrayVector implements Ivector {
             return new ArrayVector(size);
         }
     }
+
+    public String toString(){
+        return new String((new StringBuilder(Arrays.toString(vector))));
+    }
+
 
 
 }
