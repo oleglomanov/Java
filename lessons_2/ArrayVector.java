@@ -3,7 +3,7 @@ package lessons_2;
 import java.util.Arrays;
 import java.util.*;
 
-public class ArrayVector implements Ivector {
+public class ArrayVector implements Ivector,Cloneable {
 
     int vectorSize;
     private double[] vector;
@@ -13,8 +13,6 @@ public class ArrayVector implements Ivector {
      * @param _vectorSize - Количество элементов вектора
      *                    vector      - массив вектора 1
      */
-
-
 
 
     ArrayVector(int _vectorSize) {
@@ -87,15 +85,14 @@ public class ArrayVector implements Ivector {
         return Math.sqrt(norm);
     }
 
-/**
-    @Override
-    public String toString() {
-        return "ArrayVector{" +
-                "vectorSize=" + vectorSize +
-                ", vector=" + Arrays.toString(vector) +
-                '}';
-    }
- */
+    /**
+     * @Override public String toString() {
+     * return "ArrayVector{" +
+     * "vectorSize=" + vectorSize +
+     * ", vector=" + Arrays.toString(vector) +
+     * '}';
+     * }
+     */
 
     public java.util.Iterator iterator() {
         return new ArrayVectorIterator(this);
@@ -118,8 +115,8 @@ public class ArrayVector implements Ivector {
         }
 
         public Object next() {
-                current++;
-                return aggregate.getElement(current);
+            current++;
+            return aggregate.getElement(current);
         }
 
         public void remove() {
@@ -135,13 +132,46 @@ public class ArrayVector implements Ivector {
         }
     }
 
-    public String toString(){
-        return new String((new StringBuilder(Arrays.toString(vector))));
+    public String toString() {
+        int current = 0;
+        StringBuffer sb = new StringBuffer();
+
+        for (int i = 0; i < this.getVectorSize(); i++) {
+            sb.append(vector[i]).append(" ");
+        }
+        return sb.toString();
+    }
+
+    public boolean equals(Ivector obj ,Ivector obj1) {
+
+        if (obj instanceof ArrayVector & obj.hashCode()==obj1.hashCode()   ) {
+                 return true;
+        }
+        else {
+            return false;
+        }
     }
 
 
 
+
+
+    public int hashCode(){
+            int result = 0;
+            long t;
+            for (int i = 0; i<vector.length;i++){
+                t=Double.doubleToLongBits(vector[i]);
+                result^=(((int)(t>>32))^(int)(t&0x00000000FFFFFFFF));
+            }
+            return result;
+        }
+public Object clone() throws CloneNotSupportedException {
+        return super.clone();
 }
+
+
+}
+
 
 
 

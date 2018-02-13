@@ -3,7 +3,7 @@ package lessons_2;
 
 import java.util.Iterator;
 import java.util.*;
-public class LinkedListVector  implements  Ivector {
+public class LinkedListVector  implements  Ivector,Cloneable {
 
 
     int vectorSize;
@@ -210,6 +210,45 @@ public class LinkedListVector  implements  Ivector {
         public LinkedListVector createInstance(int size) {
             return new LinkedListVector(size);
         }
+    }
+
+    public String toString() {
+        String result="";
+        StringBuffer sb = new StringBuffer();
+        current= head;
+        while (current.next != head){
+            current=current.next;
+            sb.append(current.value);
+            sb.append(" ");
+        }
+
+return sb.toString();
+    }
+
+
+    public boolean equals(Ivector obj ,Ivector obj1) {
+
+        if (obj instanceof  LinkedListVector & obj.hashCode()==obj1.hashCode()   ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+
+
+    public int hashCode(){
+        int result = 0;
+        long t;
+        Node current = head.next;
+        while(current != head){
+            t=Double.doubleToLongBits(current.value);
+            result^=(((int)(t>>32))^(int)(t&0x00000000FFFFFFFF));
+            current = current.next;
+        }
+        return result;
     }
 
 

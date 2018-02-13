@@ -2,7 +2,7 @@ package lessons_2;
 
 
 
-public interface VectorFactory {
+public interface VectorFactory  {
      Ivector createInstance(int size );
 
 }

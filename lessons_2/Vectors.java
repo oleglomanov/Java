@@ -36,10 +36,24 @@ public class Vectors {
         System.out.println();
         LinkedListVector.LinkedListVectorIterator linkedListVectorIterator = new LinkedListVector.LinkedListVectorIterator(linkedListVectorFromClassLinkedList);   // Create interator LinkedlistVector
         System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");
-        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");  //Check method next from  LinkedListVector
-        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");  //Check method next from  LinkedListVector
+        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");  // Check method next from  LinkedListVector
+        System.out.println(linkedListVectorIterator.next() + "  Check method next from  LinkedListVector  ");  // Check method next from  LinkedListVector
         System.out.println(linkedListVectorIterator.hasNext() + " Check method hasnext from  LinkedListVector ");
         System.out.println(linkedListVectorIterator.hasNext() + " Check method hasnext from  LinkedListVector ");
+        System.out.println(arrayVectorFromClassArrayVector.toString());                                        // Array to string
+        System.out.println(linkedListVectorFromClassLinkedList.toString());       // Linkedlist to string
+
+        System.out.println(arrayVectorFromClassArrayVector.hashCode());
+
+        try {
+            System.out.println(arrayVectorFromClassArrayVector.equals(arrayVectorFromClassArrayVector, (Ivector) arrayVectorFromClassArrayVector.clone()));
+          } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(linkedListVectorFromClassLinkedList.hashCode());
+
+
 
 
 
