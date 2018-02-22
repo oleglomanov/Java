@@ -93,6 +93,19 @@ public class LinkedListVector  implements Ivector,Cloneable {
     }
 
 
+    public void setElement(int index, double element) {
+
+        try {
+            Node node = gotoNumber(index);
+            node.value = element;
+        } catch (VectorIndexOutOfBoundsException e) {
+            System.out.println("Error of index");
+        }
+    }
+
+
+
+
     void printElements() throws VectorIndexOutOfBoundsException {
         try {
             for (int i = 0; i < size; i++) {
@@ -175,6 +188,8 @@ public class LinkedListVector  implements Ivector,Cloneable {
         return new LinkedListVectorIterator(this);
     }
 
+
+
     public static class LinkedListVectorIterator implements Iterator {
         private LinkedListVector.Node current;
         private LinkedListVector.Node head;
@@ -237,8 +252,6 @@ return sb.toString();
     }
 
 
-
-
     public int hashCode(){
         int result = 0;
         long t;
@@ -250,6 +263,11 @@ return sb.toString();
         }
         return result;
     }
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
 
 
 }

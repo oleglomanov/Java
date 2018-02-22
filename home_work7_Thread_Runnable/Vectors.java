@@ -1,6 +1,8 @@
 package home_work7_Thread_Runnable;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 
 
 public class Vectors {
@@ -15,7 +17,6 @@ public class Vectors {
         ArrayVector.ArrayVectorFactory vectorFactory = new ArrayVector.ArrayVectorFactory();      // Create arrayVectorFactory
         Ivector arrayVectorTypeIvecor = vectorFactory.createInstance(3);                     // Create arrayVector type Ivecor (Interface)
         ArrayVector arrayVectorFromClassArrayVector = vectorFactory.createInstance(4);       // Create arrayVector from class array vector
-
         System.out.println(arrayVectorFromClassArrayVector  +"  My new ArrayVector ");             // Print all elemets from arrayVector
 
         ArrayVector.ArrayVectorIterator arrayVectorIterator = new ArrayVector.ArrayVectorIterator(arrayVectorFromClassArrayVector);  // Create interator ArrayVector
@@ -45,49 +46,35 @@ public class Vectors {
 
         System.out.println(arrayVectorFromClassArrayVector.hashCode());
 
+
+
+
+        LinkedListVector linkedListVector1 = null;
         try {
-            System.out.println(arrayVectorFromClassArrayVector.equals(arrayVectorFromClassArrayVector, (Ivector) arrayVectorFromClassArrayVector.clone()));
-          } catch (CloneNotSupportedException e) {
+            linkedListVector1 = (LinkedListVector) linkedListVector.clone();
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
 
+        System.out.println(arrayVectorFromClassArrayVector.equals(arrayVectorFromClassArrayVector, linkedListVector1));
         System.out.println(linkedListVectorFromClassLinkedList.hashCode());
-
-
-
-
-
+    }
 
 //      linkedListVectorIterator.remove();   //Check method  Remove, print exception
 
 
+        public static void writeVector(Ivector v, Writer out) {
+            PrintWriter pw = new PrintWriter(out);
+            pw.printf("%d ", v.getVectorSize());
+            for (int i = 0; i < v.getVectorSize(); i++) {
+                pw.printf("%g ", v.getElement(i));
+            }
+            pw.close();
 
-
-
-
-
-        /**       old home work
-        System.out.println("Печать всех элементов Linkedlist: ");
-        linkedListVector.printElements();   // печать всех элементов
-
-       System.out.println("\n" + "Удаляю элемент по индексу 3: ");
-       linkedListVector.deleteElement(2);
-
-        linkedListVector.printElements();   // печать всех элементов
-
-        System.out.println("\n" + "Элемент по индексу 2: ");
-        System.out.println(linkedListVector.getElement(1));       // печать элемента по индексу
-
-        System.out.println(" Количество элементов ");
-        System.out.println(linkedListVector.getVectorSize());   // Количество элементов
-
-        System.out.println("Евклидова норма: ");
-        System.out.println(linkedListVector.getNorm());
-**/
-
-    }
-
+        }
 }
+
+
 
 
 

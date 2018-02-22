@@ -97,6 +97,11 @@ public class ArrayVector implements Ivector,Cloneable {
         return new ArrayVectorIterator(this);
     }
 
+    @Override
+    public void setElement(int index, double element) {
+
+    }
+
 
     public static class ArrayVectorIterator implements Iterator {
         private ArrayVector aggregate = null;

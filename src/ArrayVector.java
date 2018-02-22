@@ -8,8 +8,6 @@ public class ArrayVector {
 
  private int[] vector;
 
- 
-
 
     /**
      * @param _vectorSize - Количество элементов вектора
@@ -21,10 +19,9 @@ public class ArrayVector {
         this.vectorSize = _vectorSize;
 
         vector  = new int[vectorSize];
-
     }
 
-    // 
+    //
 
     /**
      * @param i -  индекс элемента
@@ -49,9 +46,6 @@ public class ArrayVector {
             return "Индекс отсутствует";
         }
     }
-
-
-
 
 
     /**

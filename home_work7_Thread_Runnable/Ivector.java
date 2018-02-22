@@ -8,5 +8,5 @@ public interface Ivector {
     int getVectorSize();
     double getNorm() throws VectorIndexOutOfBoundsException;
     Iterator iterator();
-
+    void setElement(int index, double element);
 }
