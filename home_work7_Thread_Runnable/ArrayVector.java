@@ -136,7 +136,15 @@ public class ArrayVector implements Ivector,Cloneable {
     public boolean equals(Object obj ) {
         if (!(obj instanceof ArrayVector)) return false;
         ArrayVector myObj = (ArrayVector) obj;
-        return getVectorSize() == myObj.getVectorSize() && myObj.vector== this.vector;
+        if (getVectorSize() != myObj.getVectorSize() ){
+            return false;
+        }
+        for (int i =0; i<this.getVectorSize();i++){
+            if (this.getElement(i)!=myObj.getElement(i)){
+                return  false;
+            }
+        }
+return true;
     }
 
     public int hashCode(){
