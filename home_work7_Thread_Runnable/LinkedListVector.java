@@ -241,14 +241,18 @@ return sb.toString();
     }
 
 
-    public boolean equals(Ivector obj , Ivector obj1) {
-
-        if (obj instanceof LinkedListVector & obj.hashCode()==obj1.hashCode()   ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public boolean equals(Object obj) {
+ boolean result = true;
+        if (!(this==obj))return false;
+ LinkedListVector myObj = (LinkedListVector) obj;
+if (getVectorSize()!=myObj.getVectorSize())
+    return false;
+for (int i =0; i<this.getVectorSize();i++){
+    if (this.getElement(i)!= myObj.getElement(i)){
+        result = false;
+    }
+}
+    return result;
     }
 
 

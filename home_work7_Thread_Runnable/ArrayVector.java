@@ -36,17 +36,15 @@ public class ArrayVector implements Ivector,Cloneable {
     }
 
     /**
-     * @param i     -  Индекс элемента
-     * @param value -  Значение для подстановки
+     * @param index     -  Индекс элемента
+     * @param element -  Значение для подстановки
      * @return новое значение
      */
 
-    public String setElement(int i, int value) {
-        if (i < vector.length) {
-            vector[i] = value;
-            return value + " установлен " + " на позицию " + (i + 1);
-        } else {
-            return "Индекс отсутствует";
+    public  void  setElement(int index, double element) {
+        if (index < vector.length) {
+            vector[index] = element;
+
         }
     }
 
@@ -84,23 +82,12 @@ public class ArrayVector implements Ivector,Cloneable {
         return Math.sqrt(norm);
     }
 
-    /**
-     * @Override public String toString() {
-     * return "ArrayVector{" +
-     * "vectorSize=" + vectorSize +
-     * ", vector=" + Arrays.toString(vector) +
-     * '}';
-     * }
-     */
+
 
     public Iterator iterator() {
         return new ArrayVectorIterator(this);
     }
 
-    @Override
-    public void setElement(int index, double element) {
-
-    }
 
 
     public static class ArrayVectorIterator implements Iterator {
@@ -146,19 +133,11 @@ public class ArrayVector implements Ivector,Cloneable {
         return sb.toString();
     }
 
-    public boolean equals(Ivector obj , Ivector obj1) {
-
-        if (obj instanceof ArrayVector & obj.hashCode()==obj1.hashCode()   ) {
-                 return true;
-        }
-        else {
-            return false;
-        }
+    public boolean equals(Object obj ) {
+        if (!(obj instanceof ArrayVector)) return false;
+        ArrayVector myObj = (ArrayVector) obj;
+        return getVectorSize() == myObj.getVectorSize() && myObj.vector== this.vector;
     }
-
-
-
-
 
     public int hashCode(){
             int result = 0;
