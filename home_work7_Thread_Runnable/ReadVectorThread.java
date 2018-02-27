@@ -6,6 +6,10 @@ public class ReadVectorThread   extends Thread implements Ivector {
 
     Ivector vector;
 
+    public ReadVectorThread(Ivector vector) {
+        this.vector = vector;
+    }
+
     @Override
     public double getElement(int i) {
         return vector.getElement(i);

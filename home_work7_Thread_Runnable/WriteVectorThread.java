@@ -6,6 +6,11 @@ public class WriteVectorThread  extends Thread implements Ivector {
 
     Ivector vector;
 
+    public WriteVectorThread(Ivector vector) {
+        this.vector=vector;
+
+    }
+
 
     @Override
     public double getElement(int i) {

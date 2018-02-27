@@ -3,7 +3,7 @@ package home_work7_Thread_Runnable;
 
 import java.util.Iterator;
 
-public class LinkedListVector  implements Ivector,Cloneable {
+public class LinkedListVector implements Ivector, Cloneable {
 
 
     int vectorSize;
@@ -104,8 +104,6 @@ public class LinkedListVector  implements Ivector,Cloneable {
     }
 
 
-
-
     void printElements() throws VectorIndexOutOfBoundsException {
         try {
             for (int i = 0; i < size; i++) {
@@ -189,7 +187,6 @@ public class LinkedListVector  implements Ivector,Cloneable {
     }
 
 
-
     public static class LinkedListVectorIterator implements Iterator {
         private LinkedListVector.Node current;
         private LinkedListVector.Node head;
@@ -202,7 +199,7 @@ public class LinkedListVector  implements Ivector,Cloneable {
 
         @Override
         public boolean hasNext() {
-         current=current.next;
+            current = current.next;
             return current.next != head;
         }
 
@@ -213,6 +210,7 @@ public class LinkedListVector  implements Ivector,Cloneable {
             }
             return current.value;
         }
+
         @Override
         public void remove() {
             throw new UnsupportedOperationException();
@@ -228,41 +226,41 @@ public class LinkedListVector  implements Ivector,Cloneable {
     }
 
     public String toString() {
-        String result="";
+        String result = "";
         StringBuffer sb = new StringBuffer();
-        current= head;
-        while (current.next != head){
-            current=current.next;
+        current = head;
+        while (current.next != head) {
+            current = current.next;
             sb.append(current.value);
             sb.append(" ");
         }
 
-return sb.toString();
+        return sb.toString();
     }
 
 
     public boolean equals(Object obj) {
- boolean result = true;
-        if (!(this==obj))return false;
- LinkedListVector myObj = (LinkedListVector) obj;
-if (getVectorSize()!=myObj.getVectorSize())
-    return false;
-for (int i =0; i<this.getVectorSize();i++){
-    if (this.getElement(i)!= myObj.getElement(i)){
-        result = false;
-    }
-}
-    return result;
+        if (!(this == obj)) return false;
+        LinkedListVector myObj = (LinkedListVector) obj;
+        if (getVectorSize() != myObj.getVectorSize()) {
+            return false;
+        }
+        for (int i = 0; i < this.getVectorSize(); i++) {
+            if (this.getElement(i) != myObj.getElement(i)) {
+                 return  false;
+            }
+        }
+        return true;
     }
 
 
-    public int hashCode(){
+    public int hashCode() {
         int result = 0;
         long t;
         Node current = head.next;
-        while(current != head){
-            t=Double.doubleToLongBits(current.value);
-            result^=(((int)(t>>32))^(int)(t&0x00000000FFFFFFFF));
+        while (current != head) {
+            t = Double.doubleToLongBits(current.value);
+            result ^= (((int) (t >> 32)) ^ (int) (t & 0x00000000FFFFFFFF));
             current = current.next;
         }
         return result;
@@ -271,7 +269,6 @@ for (int i =0; i<this.getVectorSize();i++){
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-
 
 
 }

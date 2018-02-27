@@ -53,13 +53,28 @@ public class Vectors {
         System.out.println(linkedListVectorFromClassLinkedList.hashCode());
 
 
-        System.out.println(arrayVectorFromClassArrayVector.equals(linkedListVectorFromClassLinkedList));
-        System.out.println(arrayVectorFromClassArrayVector.equals(arrayVectorFromClassArrayVector));
+        System.out.println(linkedListVectorFromClassLinkedList.equals(linkedListVectorFromClassLinkedList));
+        System.out.println(arrayVector.equals(arrayVector));
         System.out.println("***");
         System.out.println(createInstance(3));
+        System.out.println("***home_work7*** ");
 
 
+        LinkedListVector linkedListVector2 = new LinkedListVector(8);
+        LinkedListVector linkedListVector3 = new LinkedListVector(8);
+        LinkedListVector linkedListVector4 = new LinkedListVector(8);
 
+        WriteVectorThread writeVectorThread2 = new WriteVectorThread(linkedListVector2);
+        WriteVectorThread writeVectorThread3 = new WriteVectorThread(linkedListVector3);
+        WriteVectorThread writeVectorThread4 = new WriteVectorThread(linkedListVector4);
+
+
+        ReadVectorThread readVectorThread2 = new ReadVectorThread(linkedListVector2);
+        ReadVectorThread readVectorThread3 = new ReadVectorThread(linkedListVector3);
+        ReadVectorThread readVectorThread4 = new ReadVectorThread(linkedListVector4);
+
+writeVectorThread2.run();
+readVectorThread2.run();
 
     }
 
